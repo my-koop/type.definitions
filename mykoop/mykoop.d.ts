@@ -5,8 +5,17 @@
 
 declare module "mykoop" {
 
-  export interface IModule{
-    onAllModulesLoaded: () => void;
+  export interface IModule {
+
+  }
+
+  export interface ModuleManager {
+    get(moduleName: string): IModule;
+  }
+
+  export interface IModuleBridge {
+    onAllModulesLoaded: (moduleManager: ModuleManager) => void;
+    getModule(): IModule;
   }
 
 }
