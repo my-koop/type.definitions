@@ -13,6 +13,15 @@ class ModuleBridge implements mykoop.IModuleBridge {
   getModule(): mykoop.IModule {
     return new Module();
   }
+
+  getStyles(): string[] {
+    return ["style1.less", "style2.less"];
+  }
+
+  getReactComponents(): string[] {
+    return ["component2.jsx", "component2.jsx"];
+  }
+
 }
 
 

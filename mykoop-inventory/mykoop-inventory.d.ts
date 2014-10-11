@@ -1,5 +1,5 @@
 // Type definitions for inventory v0.0.0
-// Project:
+// Project: https://github.com/my-koop/service.website
 // Definitions by: Michael Ferris <https://github.com/Cellule/>
 // Definitions: https://github.com/my-koop/type.definitions
 
