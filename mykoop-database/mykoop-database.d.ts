@@ -10,7 +10,7 @@ declare module "mykoop-database" {
   import mysql = require("mysql");
   import mykoop = require("mykoop");
 
-  class Module implements mykoop.IModule {
+  interface Module extends mykoop.IModule {
     connect(dbConfig: mysql.IConnectionConfig): mysql.IConnection;
     getConnection(): mysql.IConnection;
   }
