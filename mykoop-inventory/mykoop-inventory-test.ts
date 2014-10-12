@@ -1,7 +1,17 @@
 
 /// <reference path="./mykoop-inventory.d.ts" />
 
-import inv = require("mykoop-inventory");
+import mkinventory = require("mykoop-inventory");
+import mykoop = require("mykoop");
 
+class Module implements mkinventory.Module {
+  get() {
+    return "";
+  }
+}
 
-var g: string = inv.get();
+function test(moduleManager: mykoop.ModuleManager) {
+  var inv = <mkinventory.Module>moduleManager.get("inventory");
+  inv.get();
+}
+

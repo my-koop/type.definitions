@@ -3,7 +3,14 @@
 // Definitions by: Michael Ferris <https://github.com/Cellule/>
 // Definitions: https://github.com/my-koop/type.definitions
 
+/// <reference path="../mykoop/mykoop.d.ts" />
+
 declare module "mykoop-inventory" {
-  export function get(): string;
+  import mykoop = require("mykoop");
+
+  export class Module implements mykoop.IModule{
+    get(): string;
+  }
+
 }
 

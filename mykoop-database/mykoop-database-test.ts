@@ -6,7 +6,7 @@ import mkdatabase = require("mykoop-database");
 import mykoop = require("mykoop");
 import mysql = require("mysql");
 
-class Module implements mkdatabase{
+class Module implements mkdatabase.Module {
   connect(dbConfig: mysql.IConnectionConfig): mysql.IConnection{
     return null;
   }
@@ -16,8 +16,11 @@ class Module implements mkdatabase{
 }
 
 function test(moduleManager: mykoop.ModuleManager) {
-  var db = <mkdatabase>moduleManager.get("database");
+  var db = <mkdatabase.Module>moduleManager.get("database");
   db.connect({host:'', user:'', password:'', port:1856});
-  db.getConnection();
+  db.getConnection(function(err,connection){
+    if(err) return;
+    connection.end();
+  });
 }
 
