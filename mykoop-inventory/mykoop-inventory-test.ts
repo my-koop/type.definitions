@@ -1,10 +1,8 @@
 
 /// <reference path="./mykoop-inventory.d.ts" />
+export var t: any;
 
-import mkinventory = require("mykoop-inventory");
-import mykoop = require("mykoop");
-
-class Module implements mkinventory.Module {
+class InventoryModule implements mkinventory.Module {
   get() {
     return "";
   }

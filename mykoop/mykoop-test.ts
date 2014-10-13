@@ -1,6 +1,6 @@
 
 /// <reference path="./mykoop.d.ts" />
-import mykoop = require("mykoop");
+export var t:any;
 
 class Module implements mykoop.IModule {
 
