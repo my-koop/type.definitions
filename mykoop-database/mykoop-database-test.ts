@@ -2,8 +2,6 @@
 /// <reference path="./mykoop-database.d.ts" />
 /// <reference path="../mysql/mysql.d.ts" />
 
-import mkdatabase = require("mykoop-database");
-import mykoop = require("mykoop");
 import mysql = require("mysql");
 
 class Module implements mkdatabase.Module {
