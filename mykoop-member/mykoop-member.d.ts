@@ -6,14 +6,20 @@
 /// <reference path="../mykoop/mykoop.d.ts" />
 declare module mkmember {
 
-  export interface ModuleClass1 {
-    value: string;
+  export interface MemberInfo {
     id: number;
+    email: string;
+    firstname: string;
+    lastname: string;
+    isActive: string;
+    isVolunteer: string;
+    activeUntil : Date;
+    feeTransactionId: number;
+    subTransactionId: number;
   }
   export interface Module extends mykoop.IModule {
-    method1(
-      inParam: {id:number; value:string},
-      callback: (err: Error, res ?: ModuleClass1) => void
+    getMembersList(
+      callback: (err: Error, res : MemberInfo[]) => void
     ): void;
   }
 

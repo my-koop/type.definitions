@@ -14,10 +14,30 @@ declare module mkevent {
       updateData: EventInterfaces.AddEventData,
       callback: (err: Error) => void
     );
+
+    getEvents(
+      callback: (err: Error, result?: Event[]) => void
+    );
+
+    updateEvent(
+      updateData: EventInterfaces.AddEventData,
+      callback: (err: Error, result?: boolean) => void
+    );
+
+    deleteEvent(
+      idEvent : Number,
+      callback: (err: Error, result?: boolean) => void
+    );
+
+    registerToEvent(
+      registerData: EventInterfaces.RegisterEventData,
+      callback: (err: Error, result?: {success: boolean}) => void
+    );
   }
 
   export interface Event {
     id: number;
+    name: string;
     type: string;
     startDate : Date;
     endDate : Date;

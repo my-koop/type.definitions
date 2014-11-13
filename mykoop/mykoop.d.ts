@@ -3,6 +3,17 @@
 // Definitions by: Michael Ferris <https://github.com/Cellule/>
 // Definitions: https://github.com/my-koop/type.definitions
 
+declare var __DEV__: boolean;
+declare var __PROD__: boolean;
+
+declare module NodeJS {
+  export interface Process {
+    __DEV__: boolean;
+    __PROD__: boolean;
+    browser: boolean;
+  }
+}
+
 declare module Express {
   export interface Router{}
   export interface Request{}
@@ -12,6 +23,7 @@ declare module Express {
   export interface Session{
     user?: any;
   }
+  export interface Handler{}
 }
 
 interface Error {
@@ -103,11 +115,7 @@ declare module mykoop {
   export interface Router extends IModule {
     addRoute(
       params: RouteParams,
-      callback: (
-        req: Express.Request,
-        res: Express.Response,
-        next: Function
-      ) => void
+      callback: Express.Handler[]
     );
   }
 }

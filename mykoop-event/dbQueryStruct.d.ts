@@ -1,10 +1,16 @@
 declare module EventDbQueryStruct {
-
   export interface EventData {
-	type            : string;
-	startDate       : Date;
-	endDate         : Date;
-	startAmount     : number;
-	endAmount       : number;
+    name            : string;
+    type            : string;
+    startDate       : Date;
+    endDate         : Date;
+    startAmount     : number;
+    endAmount       : number;
+  }
+
+  export interface EventUserData {
+    idUser          : number;
+    idEvent         : number;
+    registered      : boolean;
   }
 }

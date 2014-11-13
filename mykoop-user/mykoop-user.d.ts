@@ -5,7 +5,13 @@
 
 /// <reference path="../mykoop/mykoop.d.ts" />
 /// <reference path="./interfaces.d.ts" />
+/// <reference path="./dbQueryStruct.d.ts" />
 declare module mkuser {
+
+  export interface LoginResponse {
+    id: number;
+    email: string;
+  }
 
   export interface UserProfile {
     email          ?: string;
@@ -21,10 +27,16 @@ declare module mkuser {
   }
 
   export interface Module extends mykoop.IModule {
-    tryLogin(loginInfo: UserInterfaces.TryLogin, callback: (err: Error, result: boolean) => void): void;
+    login(
+      loginInfo: UserInterfaces.LoginRequestData,
+      callback: (err: Error, result?: LoginResponse
+    ) => void): void;
     getProfile(id: number, callback: (err: Error, result: UserProfile) => void): void;
     registerNewUser(profile: UserInterfaces.RegisterNewUser, callback: (err: Error, result: boolean) => void ) : void;
     updateProfile(id:number, profile: mkuser.UserProfile, callback: (err: Error, result: boolean) => void ) : void;
+    updatePassword(id:number, passwords:UserInterfaces.updatePassword, callback: (err: Error) => void) : void;
+    // id is -1 if not found
+    getIdForEmail(params: {email: string}, callback: (err, id: number) => void);
   }
 
 }
